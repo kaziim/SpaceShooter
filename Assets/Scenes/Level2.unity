@@ -2185,17 +2185,17 @@ MonoBehaviour:
     noOfEnemises: 10
     spawnInterval: 1
     typeOfEnemies:
-    - {fileID: 6561215794656757307, guid: 329038d71d1f07c4f98aa4389e31fda3, type: 3}
+    - {fileID: 6703348458351751823, guid: 7398ab6812fe9444fb8ac52f0db86b32, type: 3}
   - waveName: Wave 2
     noOfEnemises: 15
     spawnInterval: 0.7
     typeOfEnemies:
-    - {fileID: 6561215794656757307, guid: 329038d71d1f07c4f98aa4389e31fda3, type: 3}
+    - {fileID: 6703348458351751823, guid: 7398ab6812fe9444fb8ac52f0db86b32, type: 3}
   - waveName: Wave 3
     noOfEnemises: 5
     spawnInterval: 0.3
     typeOfEnemies:
-    - {fileID: 6561215794656757307, guid: 329038d71d1f07c4f98aa4389e31fda3, type: 3}
+    - {fileID: 6703348458351751823, guid: 7398ab6812fe9444fb8ac52f0db86b32, type: 3}
   - waveName: Final Wave
     noOfEnemises: 2
     spawnInterval: 0
@@ -2583,7 +2583,7 @@ PrefabInstance:
     - target: {fileID: 183051079703056412, guid: df41a2ef228fcf2488ddc53b8cc011f1, type: 3}
       propertyPath: laserPrefab
       value: 
-      objectReference: {fileID: 3794718696106285530, guid: 6a7e19515b52cc149b53cfdad20fdf20, type: 3}
+      objectReference: {fileID: 3918779780994215111, guid: 2168ceb8e6ef33e46a8e5e1cc73247f3, type: 3}
     - target: {fileID: 183051079703056413, guid: df41a2ef228fcf2488ddc53b8cc011f1, type: 3}
       propertyPath: m_Name
       value: Player
