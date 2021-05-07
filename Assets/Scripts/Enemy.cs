@@ -39,12 +39,16 @@ public class Enemy : MonoBehaviour
                 waitTime -= Time.deltaTime;
             }
         }*/
-
-        transform.position = new Vector2(transform.position.x,transform.position.y - 0.01f);
+        var target = new Vector2(transform.position.x, transform.position.y - 20f);
+        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        var bumper = (GameObject) Instantiate(explosion, collision.transform.position + (Vector3.up *1/2f), collision.transform.rotation);
+        if (collision.CompareTag("Laser"))
+        {
+            var explode = (GameObject) Instantiate(explosion, collision.transform.position + (Vector3.up *1/2f), collision.transform.rotation);
+        }
+        
         Destroy(gameObject);
     }
     
