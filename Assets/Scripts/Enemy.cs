@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, 
+        /*transform.position = Vector2.MoveTowards(transform.position, 
                                          moveSpot.position, speed * Time.deltaTime);
         if (Vector2.Distance(transform.position,moveSpot.position) < 0.2f) 
         {
@@ -38,7 +38,9 @@ public class Enemy : MonoBehaviour
             else {
                 waitTime -= Time.deltaTime;
             }
-        }
+        }*/
+
+        transform.position = new Vector2(transform.position.x,transform.position.y - 0.01f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

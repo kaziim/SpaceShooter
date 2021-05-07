@@ -32,6 +32,10 @@ public class Projectile : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
+        }else if (other.CompareTag("Laser"))
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 
