@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject laserPrefab;
     private float xMin, xMax,yMin,yMax;
     private Coroutine fireCoroutine;
+    [SerializeField] GameObject explosion;
     
     // Start is called before the first frame update
     void Start()
@@ -81,5 +83,14 @@ public class Player : MonoBehaviour
         xMax = myGameCamera.ViewportToWorldPoint(new Vector3(1,0,0)).x - padding;
         yMin = myGameCamera.ViewportToWorldPoint(new Vector3(0,0,0)).y + padding;
         yMax = myGameCamera.ViewportToWorldPoint(new Vector3(0,1,0)).y - padding;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Projectile"))
+        {
+            var explode = (GameObject) Instantiate(explosion, collision.transform.position, collision.transform.rotation);
+        }
+        
     }
 }
