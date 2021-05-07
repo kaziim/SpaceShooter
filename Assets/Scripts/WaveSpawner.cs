@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Wave
@@ -46,6 +47,8 @@ public class WaveSpawner : MonoBehaviour
             }else
             {
                 Debug.Log("GameFinish");
+                SceneManager.LoadScene(0);
+
             }
             
         }

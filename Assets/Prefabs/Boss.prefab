@@ -116,6 +116,6 @@ MonoBehaviour:
   stoppingDistance: 5
   retreatDistance: 2
   startTimeBetweenShots: 2
-  health: 5
+  health: 10
   projectile: {fileID: 4925467742908087145, guid: cb2bdff5a9eae9744adfc6f92a443dbc, type: 3}
   explosion: {fileID: 7254968184033709354, guid: 04d8c044e1886ae45b152f62db2b337f, type: 3}
