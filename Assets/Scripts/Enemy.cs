@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
         {
             var explode = (GameObject) Instantiate(explosion, collision.transform.position + (Vector3.up *1/2f), collision.transform.rotation);
         }
-        
+        SoundManager.PlaySound("enemyHit");
         Destroy(gameObject);
     }
     

@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
         {
             GameObject laser = Instantiate(laserPrefab, transform.position,Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = Vector2.up * laserSpeed;
+            SoundManager.PlaySound("fire");
             yield return new WaitForSeconds(0.1f);
         }
     }
