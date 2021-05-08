@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Laser"))
         {
             var explode = (GameObject) Instantiate(explosion, collision.transform.position + (Vector3.up *1/2f), collision.transform.rotation);
+            Destroy(collision.gameObject);
         }
         SoundManager.PlaySound("enemyHit");
         Destroy(gameObject);

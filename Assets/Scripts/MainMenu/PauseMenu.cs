@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    [SerializeField] private Slider volumeSlider;
     
     void Update()
     {
@@ -21,6 +23,19 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
             }
+        }
+    }
+
+    private void Start()
+    {
+        if (!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume",0.5f);
+            LoadVolume();
+        }
+        else
+        {
+            LoadVolume();
         }
     }
 
@@ -48,5 +63,24 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quitting game....");
         Application.Quit();
+    }
+    
+    public void ChangeVolume()
+    {
+        AudioListener.volume = volumeSlider.value;
+        Save();
+    }
+
+    private void LoadVolume()
+    {
+        if (volumeSlider != null)
+        {
+            volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        }
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetFloat("musicVolume",volumeSlider.value);
     }
 }

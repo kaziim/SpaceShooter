@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class OptionsMenu : MonoBehaviour
 {
     [SerializeField] private Slider volumeSlider;
-    
-    void Start()
+
+    private void Start()
     {
         if (!PlayerPrefs.HasKey("musicVolume"))
         {
