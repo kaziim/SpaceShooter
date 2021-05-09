@@ -4,5 +4,5 @@
  
  # Screenshots
  ![](https://github.com/kaziim/SpaceShooter/blob/main/Screenshots/Screenshot_3.png)
-  ![](https://github.com/kaziim/SpaceShooter/blob/main/Screenshots/Screenshot_4.png)
+  ![](https://github.com/kaziim/SpaceShooter/blob/main/Screenshots/Screenshot_5.png)
    ![](https://github.com/kaziim/SpaceShooter/blob/main/Screenshots/Screenshot_6.png)
