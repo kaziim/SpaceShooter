@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
+
 public class SpaceBoss : MonoBehaviour
 {
     
@@ -17,12 +20,16 @@ public class SpaceBoss : MonoBehaviour
     private float timeBetweenShots;
     public float startTimeBetweenShots;
     private Transform player;
+    
+    public Text score;
+    private int currentScore = 0;
     private void Start() 
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBetweenShots = startTimeBetweenShots;
         waitTime = startWaitTime;
         moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        currentScore = Int32.Parse(PlayerPrefs.GetString("currentScore"));
     }
 
     // Update is called once per frame
@@ -67,9 +74,14 @@ public class SpaceBoss : MonoBehaviour
         {
             Destroy(collision.gameObject);
             health--;
+            currentScore += 10;
+            PlayerPrefs.SetString("currentScore",currentScore+"");
+            SoundManager.PlaySound("enemyHit");
         }
         if (health == 0)
         {
+            currentScore += 15;
+            PlayerPrefs.SetString("currentScore",currentScore+"");
             var explode = (GameObject) Instantiate(explosion, collision.transform.position + (Vector3.up *1/2f), collision.transform.rotation);
             Destroy(gameObject);
         }

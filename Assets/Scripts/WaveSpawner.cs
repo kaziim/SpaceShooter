@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,15 @@ public class WaveSpawner : MonoBehaviour
 
     private bool canSpawn = true;
     private bool canAnimate = false;
+    
+    public GameObject CongratsMenuUI;
+    private int personalBest;
+
+
+    private void Start()
+    {
+        personalBest = PlayerPrefs.GetInt("personalBest", 0);
+    }
 
     void Update()
     {
@@ -46,9 +56,14 @@ public class WaveSpawner : MonoBehaviour
                 }
             }else
             {
+                int temp = Int32.Parse(PlayerPrefs.GetString("currentScore"));
+                if (temp > personalBest)
+                {
+                    PlayerPrefs.SetInt("personalBest",temp);
+                }
                 Debug.Log("GameFinish");
-                SceneManager.LoadScene(0);
-
+                CongratsMenuUI.SetActive(true);
+                Time.timeScale = 0f;
             }
             
         }

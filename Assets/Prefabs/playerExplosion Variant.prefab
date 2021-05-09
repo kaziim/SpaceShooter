@@ -14,7 +14,7 @@ PrefabInstance:
     - target: {fileID: 879565467940367816, guid: c44a412698c847a499a552b69b00bef0, type: 3}
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 51cc53a1dab7f55418468538e193928a, type: 3}
+      objectReference: {fileID: 21300000, guid: bedcee226b9312d4998e209fa6aa7cd9, type: 3}
     - target: {fileID: 879565467940367817, guid: c44a412698c847a499a552b69b00bef0, type: 3}
       propertyPath: m_RootOrder
       value: 0

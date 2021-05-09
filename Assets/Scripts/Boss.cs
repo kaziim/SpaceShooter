@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
@@ -19,11 +21,15 @@ public class Boss : MonoBehaviour
     
     private Transform player;
     
+    public Text score;
+    private int currentScore = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBetweenShots = startTimeBetweenShots;
+        currentScore = Int32.Parse(PlayerPrefs.GetString("currentScore"));
     }
 
     // Update is called once per frame
@@ -59,9 +65,14 @@ public class Boss : MonoBehaviour
         {
             Destroy(collision.gameObject);
             health--;
+            currentScore += 10;
+            PlayerPrefs.SetString("currentScore",currentScore+"");
+            SoundManager.PlaySound("enemyHit");
         }
         if (health == 0)
         {
+            currentScore += 15;
+            PlayerPrefs.SetString("currentScore",currentScore+"");
             var explode = (GameObject) Instantiate(explosion, collision.transform.position + (Vector3.up *1/2f), collision.transform.rotation);
             Destroy(gameObject);
         }

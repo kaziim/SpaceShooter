@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject explosion;
+    private int currentScore = 0;
     
     [SerializeField] private float speed = 10f;
     private int randomSpot;
@@ -21,24 +24,12 @@ public class Enemy : MonoBehaviour
     private void Start() 
     {
         waitTime = startWaitTime;
-
         moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        currentScore = Int32.Parse(PlayerPrefs.GetString("currentScore"));
     }
 
     private void Update()
     {
-        /*transform.position = Vector2.MoveTowards(transform.position, 
-                                         moveSpot.position, speed * Time.deltaTime);
-        if (Vector2.Distance(transform.position,moveSpot.position) < 0.2f) 
-        {
-            if (waitTime <= 0) {
-                moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-                waitTime = startWaitTime;
-            }
-            else {
-                waitTime -= Time.deltaTime;
-            }
-        }*/
         var target = new Vector2(transform.position.x, transform.position.y - 20f);
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
@@ -47,9 +38,12 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Laser"))
         {
             var explode = (GameObject) Instantiate(explosion, collision.transform.position + (Vector3.up *1/2f), collision.transform.rotation);
+            currentScore += 5;
+            PlayerPrefs.SetString("currentScore",currentScore+"");
+            SoundManager.PlaySound("enemyHit");
             Destroy(collision.gameObject);
         }
-        SoundManager.PlaySound("enemyHit");
+        
         Destroy(gameObject);
     }
     
