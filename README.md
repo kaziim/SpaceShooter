@@ -6,4 +6,4 @@
  ![](https://github.com/kaziim/SpaceShooter/blob/main/Screenshots/Screenshot_5.png)
   ![](https://github.com/kaziim/SpaceShooter/blob/main/Screenshots/Screenshot_3.png)
    ![](https://github.com/kaziim/SpaceShooter/blob/main/Screenshots/Screenshot_6.png)
-    ![](https://github.com/kaziim/SpaceShooter/blob/main/Screenshots/Screenshot_2.png)
+    ![](https://github.com/kaziim/SpaceShooter/blob/main/Screenshots/Screenshot_1.png)
