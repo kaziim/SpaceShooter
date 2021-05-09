@@ -5507,6 +5507,7 @@ MonoBehaviour:
     spawnInterval: 3
     typeOfEnemies:
     - {fileID: 3074469668061842589, guid: b69e4df98d5a9c9429b9294654aff73d, type: 3}
+    - {fileID: 8413745840143895806, guid: 8cd176911206bbc449205c0603301f92, type: 3}
   spawnPoints:
   - {fileID: 925868261}
   - {fileID: 516710630}
